@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="88ff3b0b-d28b-4b5b-a9b8-3393fc68b0f8" name="digitalcurator.lukaspilka.cz" url="http://digitalcurator.lukaspilka.cz">
+        <fileTransfer host="digitalcurator.lukaspilka.cz" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

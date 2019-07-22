@@ -1,0 +1,46 @@
+body{
+    background: #ffffff;
+    color: #000000;
+}
+.masterpiece-container{
+    margin: 2rem auto 0 auto;
+    width: 30%;
+    position: relative;
+}
+.boundbox-container{
+    position: absolute;
+    opacity:1;
+    animation-name: show-image;
+    animation-duration: 4s;
+    width: 100%;
+}
+@keyframes show-image {
+    0%   {opacity:0;}
+    100% {opacity:1;}
+}
+.masterpiece{
+    width: 100%;
+}
+.boundbox-face{
+    position: absolute;
+    border: 4px #0000ff solid;
+    animation-name: show-boundboxes;
+    animation-duration: 2s;
+}
+.boundbox-object{
+    position: absolute;
+    border: 4px #00FF00 solid;
+    animation-name: show-boundboxes;
+    animation-duration: 2s;
+}
+.artpiece-title{
+    width: 100%;
+    position: absolute;
+}
+@keyframes show-boundboxes {
+    0%   {opacity:0;}
+    50%  {opacity:0;}
+    100% {opacity:1;}
+}
+
+

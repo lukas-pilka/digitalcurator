@@ -8,7 +8,7 @@ $configurator = new Nette\Configurator;
 $configurator->setDebugMode(array("127.0.0.1", "::1", "77.87.242.172"));
 
 // Explicit enable debugger, uncomment if you want enable debug mode for all IPs
-//$configurator->setDebugMode(true);
+$configurator->setDebugMode(true);
 
 // Explicit disable debugger, uncomment if you want disable debug mode for all IPs
 //$configurator->setDebugMode(false);

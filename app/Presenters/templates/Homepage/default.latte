@@ -2,6 +2,17 @@
 
 {block content}
 
+<script type="text/javascript">
+    function artpieceWidth() {
+        var width = document.getElementById('masterpiece').offsetWidth;
+        document.getElementById("masterpiece-container").style.width = width +'px';
+    }
+    window.onload = artpieceWidth;
+
+</script>
+
+
+
 <div id="content" n:if="$item">
 	{snippet detail}
 
@@ -20,58 +31,62 @@
         </ul>
         *}
 
-		<div class="masterpiece-container">
+		<div class="masterpiece-container" id="masterpiece-container">
 			<div class="boundbox-container">
-				<img src="{$basePath}/sbirka-obrazy/{$item->ngInventoryId}.jpg" class="masterpiece">
+				<img src="{$basePath}/sbirka-obrazy/{$item->ngInventoryId}.jpg" class="masterpiece" id="masterpiece">
 
 				{if isset($item->localizedObjectAnnotations)}
 
 					{if count($item->localizedObjectAnnotations)}
 
-						{*
-						<ul>
-							<li n:foreach="$item->localizedObjectAnnotations as $row">
-								{$row->name} {round($row->score*100,0)}%
-							</li>
-						<ul>
-						*}
+						<div class="boundbox boundbox-label">
+							<div class="boundbox-description boundbox-label-description">
+                                {foreach $item->labelAnnotations as $row}
+									<div class="line">
+                                        {$row->description}: {round($row->score*100,0)}%<br>
+									</div>
+                                {/foreach}
+							</div>
+						</div>
 
-							{foreach $item->localizedObjectAnnotations as $row}
-							{*{$row->name} {round($row->score*100,0)}% <br>*}
-								{*{dump $item->localizedObjectAnnotations["boundingPoly"]["normalizedVertices"]}*}
-								{dump $row->boundingPoly->normalizedVertices}
-								{var $width = $row->boundingPoly->normalizedVertices[1]->x - $row->boundingPoly->normalizedVertices[0]->x}
-								{var $height = $row->boundingPoly->normalizedVertices[2]->y - $row->boundingPoly->normalizedVertices[1]->y}
-								{var $offsetx = $row->boundingPoly->normalizedVertices[0]->x}
-								{var $offsety = $row->boundingPoly->normalizedVertices[0]->y}
-								<div class="boundbox-object" style="left:{round($offsetx*100,0)}%; top:{round($offsety*100,0)}%; width: {round($width*100,0)}%; height: {round($height*100,0)}%;"></div>
-								{*{foreach $row->boundingPoly->normalizedVertices as $coord}
-									x: {$coord->x},
-									y: {$coord->y} <br>
-								{/foreach}
+						{foreach $item->localizedObjectAnnotations as $row}
+							{*{dump $item->localizedObjectAnnotations["boundingPoly"]["normalizedVertices"]}*}
+							{dump $row->boundingPoly->normalizedVertices}
+							{var $width = $row->boundingPoly->normalizedVertices[1]->x - $row->boundingPoly->normalizedVertices[0]->x}
+							{var $height = $row->boundingPoly->normalizedVertices[2]->y - $row->boundingPoly->normalizedVertices[1]->y}
+							{var $offsetx = $row->boundingPoly->normalizedVertices[0]->x}
+							{var $offsety = $row->boundingPoly->normalizedVertices[0]->y}
+							<div class="boundbox boundbox-object" style="left:{round($offsetx*100,0)}%; top:{round($offsety*100,0)}%; width: {round($width*100,0)}%; height: {round($height*100,0)}%;">
+								<div class="boundbox-description boundbox-object-description">{$row->name}: {round($row->score*100,0)}% </div>
+							</div>
+						{/foreach}
 
-								<br>
-								*}
-							{/foreach}
-
-							{foreach $item->localizedFacesAnnotations as $row}
-								{dump $row->boundingPoly->vertices}
-								{var $width = ($row->boundingPoly->vertices[1]->x - $row->boundingPoly->vertices[0]->x)}
-								{var $height = ($row->boundingPoly->vertices[2]->y - $row->boundingPoly->vertices[1]->y)}
-								{var $offsetx = $row->boundingPoly->vertices[0]->x}
-								{var $offsety = $row->boundingPoly->vertices[0]->y}
-								<div class="boundbox-face" style="left:{round($offsetx*100,0)}%; top:{round($offsety*100,0)}%; width: {round($width*100,0)}%; height: {round($height*100,0)}%;"></div>
-							{/foreach}
+						{foreach $item->localizedFacesAnnotations as $row}
+							{dump $row->boundingPoly->vertices}
+							{var $width = ($row->boundingPoly->vertices[1]->x - $row->boundingPoly->vertices[0]->x)}
+							{var $height = ($row->boundingPoly->vertices[2]->y - $row->boundingPoly->vertices[1]->y)}
+							{var $offsetx = $row->boundingPoly->vertices[0]->x}
+							{var $offsety = $row->boundingPoly->vertices[0]->y}
+							<div class="boundbox boundbox-face" style="left:{round($offsetx*100,0)}%; top:{round($offsety*100,0)}%; width: {round($width*100,0)}%; height: {round($height*100,0)}%;">
+								<div class="boundbox-description boundbox-face-description">
+									Face:<br>
+									Anger: {$row->anger}<br>
+									Joy: {$row->joy}<br>
+									Surprise: {$row->surprise}<br>
+								</div>
+							</div>
+						{/foreach}
 
 					{/if}
 				{/if}
 			</div>
 		</div>
+		{*
 		<div class="artpiece-title">
 			<h2>{$item->ngAuthor}: {$item->ngItemName}</h2>
 			<p>CreationDate: {$item->ngCreationDate}</p>
 		</div>
-
+		*}
 
 	{/snippet}
 

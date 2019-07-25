@@ -3,16 +3,14 @@
 {block content}
 
 
-{*
+
 <script type="text/javascript">
     function artpieceWidth() {
         var width = document.getElementById('masterpiece').offsetWidth;
         document.getElementById("masterpiece-container").style.width = width +'px';
     }
     window.onload = artpieceWidth;
-
 </script>
-*}
 
 
 <div id="content" class="content" n:if="$item">
@@ -53,11 +51,10 @@
 
 						<div class="boundbox boundbox-color">
 							<div class="boundbox-description boundbox-color-description">
-								RGB:<br>
+								RGB/Fraction<br>
                                 {foreach $item->propertiesAnnotations as $row}
 									<div class="line">
-										<span class="write-color">{round($row->r)}, {round($row->g)}, {round($row->b)}</span>
-										<span class="show-color" style="background-color:rgba({round($row->r)},{round($row->g)},{round($row->b)},1); width:{round($row->fraction*50,0)}%"}></span>
+										<span class="write-color" style="background-color:rgba({round($row->r)},{round($row->g)},{round($row->b)},1);">{round($row->r)}, {round($row->g)}, {round($row->b)} / {round($row->fraction*100,0)}%</span>
 									</div>
                                 {/foreach}
 							</div>
@@ -94,13 +91,13 @@
 					{/if}
 				{/if}
 			</div>
+			<div class="masterpiece-title">
+				<h1>{$item->ngItemName}</h1>
+				<p>{$item->ngAuthor}, {$item->ngCreationDate}<br>Collection of National Gallery of Prague</p>
+				<p></p>
+			</div>
 		</div>
-		{*
-		<div class="artpiece-title">
-			<h2>{$item->ngAuthor}: {$item->ngItemName}</h2>
-			<p>CreationDate: {$item->ngCreationDate}</p>
-		</div>
-		*}
+
 
 	{/snippet}
 

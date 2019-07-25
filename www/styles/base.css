@@ -2,28 +2,52 @@ body{
     background: #ffffff;
     color: #000000;
     margin: 0;
-    font-family: monospace;
+    font-family: 'Ubuntu Mono', monospace;
     width: 100%;
     height: 100%;
 }
-.content,
-.masterpiece-container{
+.content{
     width: 100%;
     height: 100%;
+}
+.masterpiece-container{
+    height: 100%;
+    margin: 5vh auto 5vh auto;
 }
 .boundbox-container{
-    position: absolute;
-    opacity:1;
+    position: relative;
+}
+
+/* masterpiece (image and title)  */
+
+.masterpiece{
+    max-height: 75vh;
+    opacity:0;
+    animation-fill-mode: forwards;
     animation-name: show-masterpiece;
-    animation-duration: 2s;
+    animation-duration: 4s;
+}
+.masterpiece-title{
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
+    opacity:0;
+    animation-fill-mode: forwards;
+    animation-name: show-masterpiece;
+    animation-duration: 4s;
+    animation-delay: 1s;
+}
+.masterpiece-title h1{
+    font-weight: 300;
+    font-size: 1.5em;
+}
+.masterpiece-title p{
+    font-size: 0.895em;
+    font-weight: 300;
 }
 @keyframes show-masterpiece {
     0%   {opacity:0;}
-    33%  {opacity:0;}
-    66%  {opacity:1;}
+    10%  {opacity:0;}
     100% {opacity:1;}
-}
-.masterpiece{
 }
 
 /* boundboxes  */
@@ -37,30 +61,29 @@ body{
     animation-delay:8s ;
     animation-name: show-boundbox;
     box-sizing: border-box;
-    font-size: 1.5em;
+    font-size: 1.25em;
 }
 .boundbox-description{
     position: absolute;
-    right: -20em;
-    top:-4px;
-    width: 20em;
+    left:0;
+    top:0;
     box-sizing: border-box;
     text-align: left;
     color: #00FF00;
-    padding: 0 0 0 1em;
+    padding: 0.5em;
 }
-.boundbox:nth-child(1)  {animation-delay: 2.0s;}
-.boundbox:nth-child(2)  {animation-delay: 2.5s;}
-.boundbox:nth-child(3)  {animation-delay: 3.0s;}
-.boundbox:nth-child(4)  {animation-delay: 3.5s;}
-.boundbox:nth-child(5)  {animation-delay: 4.0s;}
-.boundbox:nth-child(6)  {animation-delay: 4.5s;}
-.boundbox:nth-child(7)  {animation-delay: 5.0s;}
-.boundbox:nth-child(8)  {animation-delay: 5.5s;}
-.boundbox:nth-child(9)  {animation-delay: 6.0s;}
-.boundbox:nth-child(10) {animation-delay: 6.5s;}
-.boundbox:nth-child(11) {animation-delay: 7.0s;}
-.boundbox:nth-child(12) {animation-delay: 7.5s;}
+.boundbox:nth-child(1)  {animation-delay: 4.0s;}
+.boundbox:nth-child(2)  {animation-delay: 4.5s;}
+.boundbox:nth-child(3)  {animation-delay: 5.0s;}
+.boundbox:nth-child(4)  {animation-delay: 5.5s;}
+.boundbox:nth-child(5)  {animation-delay: 6.0s;}
+.boundbox:nth-child(6)  {animation-delay: 6.5s;}
+.boundbox:nth-child(7)  {animation-delay: 7.0s;}
+.boundbox:nth-child(8)  {animation-delay: 7.5s;}
+.boundbox:nth-child(9)  {animation-delay: 8.0s;}
+.boundbox:nth-child(10) {animation-delay: 8.5s;}
+.boundbox:nth-child(11) {animation-delay: 9.0s;}
+.boundbox:nth-child(12) {animation-delay: 9.5s;}
 
 
 @keyframes show-boundbox {
@@ -89,33 +112,26 @@ body{
 .boundbox-color .boundbox-color-description {
     top:auto;
     bottom: 0;
+    z-index: 10;
 }
 .boundbox-color .line .write-color{
-    width:50%;
     float: left;
     height: 1em;
 }
-.boundbox-color .line .show-color{
-    display: block;
-    height: 1em;
-    float: left;
-}
-.boundbox-description .line:nth-child(1)  {animation-delay: 2.0s;}
-.boundbox-description .line:nth-child(2)  {animation-delay: 2.5s;}
-.boundbox-description .line:nth-child(3)  {animation-delay: 3.0s;}
-.boundbox-description .line:nth-child(4)  {animation-delay: 3.5s;}
-.boundbox-description .line:nth-child(5)  {animation-delay: 4.0s;}
-.boundbox-description .line:nth-child(6)  {animation-delay: 4.5s;}
-.boundbox-description .line:nth-child(7)  {animation-delay: 5.0s;}
-.boundbox-description .line:nth-child(8)  {animation-delay: 5.5s;}
-.boundbox-description .line:nth-child(9)  {animation-delay: 6.0s;}
-.boundbox-description .line:nth-child(10) {animation-delay: 6.5s;}
-.boundbox-description .line:nth-child(11) {animation-delay: 7.0s;}
-.boundbox-description .line:nth-child(12) {animation-delay: 7.5s;}
+.boundbox-description .line:nth-child(1)  {animation-delay: 4.0s;}
+.boundbox-description .line:nth-child(2)  {animation-delay: 4.5s;}
+.boundbox-description .line:nth-child(3)  {animation-delay: 5.0s;}
+.boundbox-description .line:nth-child(4)  {animation-delay: 5.5s;}
+.boundbox-description .line:nth-child(5)  {animation-delay: 6.0s;}
+.boundbox-description .line:nth-child(6)  {animation-delay: 6.5s;}
+.boundbox-description .line:nth-child(7)  {animation-delay: 7.0s;}
+.boundbox-description .line:nth-child(8)  {animation-delay: 7.5s;}
+.boundbox-description .line:nth-child(9)  {animation-delay: 8.0s;}
+.boundbox-description .line:nth-child(10) {animation-delay: 8.5s;}
+.boundbox-description .line:nth-child(11) {animation-delay: 9.0s;}
+.boundbox-description .line:nth-child(12) {animation-delay: 10.5s;}
 
 /* boundboxes  */
 
-.masterpiece-title{
-}
 
 

@@ -3,29 +3,27 @@ body{
     color: #000000;
     margin: 0;
     font-family: monospace;
-}
-#content{
     width: 100%;
+    height: 100%;
 }
+.content,
 .masterpiece-container{
-    margin: 10vh auto 0 auto;
-    max-width: 100%;
+    width: 100%;
+    height: 100%;
 }
 .boundbox-container{
     position: absolute;
     opacity:1;
     animation-name: show-masterpiece;
-    animation-duration: 6s;
+    animation-duration: 2s;
 }
 @keyframes show-masterpiece {
     0%   {opacity:0;}
-    10%  {opacity:0;}
-    33%  {opacity:1;}
+    33%  {opacity:0;}
     66%  {opacity:1;}
     100% {opacity:1;}
 }
 .masterpiece{
-    max-width: 100%;
 }
 
 /* boundboxes  */
@@ -36,6 +34,7 @@ body{
     opacity: 0;
     animation-fill-mode: forwards;
     animation-duration: 1s;
+    animation-delay:8s ;
     animation-name: show-boundbox;
     box-sizing: border-box;
     font-size: 1.5em;
@@ -50,44 +49,69 @@ body{
     color: #00FF00;
     padding: 0 0 0 1em;
 }
-.boundbox:nth-child(1)  {animation-delay: 1.0s;}
-.boundbox:nth-child(2)  {animation-delay: 1.5s;}
-.boundbox:nth-child(3)  {animation-delay: 2.0s;}
-.boundbox:nth-child(4)  {animation-delay: 2.5s;}
-.boundbox:nth-child(5)  {animation-delay: 3.0s;}
-.boundbox:nth-child(6)  {animation-delay: 3.5s;}
-.boundbox:nth-child(7)  {animation-delay: 4.0s;}
-.boundbox:nth-child(8)  {animation-delay: 4.5s;}
-.boundbox:nth-child(9)  {animation-delay: 5.0s;}
-.boundbox:nth-child(10) {animation-delay: 5.5s;}
+.boundbox:nth-child(1)  {animation-delay: 2.0s;}
+.boundbox:nth-child(2)  {animation-delay: 2.5s;}
+.boundbox:nth-child(3)  {animation-delay: 3.0s;}
+.boundbox:nth-child(4)  {animation-delay: 3.5s;}
+.boundbox:nth-child(5)  {animation-delay: 4.0s;}
+.boundbox:nth-child(6)  {animation-delay: 4.5s;}
+.boundbox:nth-child(7)  {animation-delay: 5.0s;}
+.boundbox:nth-child(8)  {animation-delay: 5.5s;}
+.boundbox:nth-child(9)  {animation-delay: 6.0s;}
+.boundbox:nth-child(10) {animation-delay: 6.5s;}
+.boundbox:nth-child(11) {animation-delay: 7.0s;}
+.boundbox:nth-child(12) {animation-delay: 7.5s;}
+
 
 @keyframes show-boundbox {
     0%      {opacity:0;}
+    50%     {opacity:1;}
     100%    {opacity:1;}
 }
 
-.boundbox-label{
+.boundbox-label,
+.boundbox-color{
     width: 100%;
     height: 100%;
     left: 0%;
     top:0%;
 }
-.boundbox-label .line{
+.boundbox-label .line,
+.boundbox-color .line{
+    width: 100%;
+    float: left;
     opacity: 0;
     animation-fill-mode: forwards;
     animation-duration: 1s;
+    animation-delay: 8s;
     animation-name: show-boundbox;
 }
-.boundbox-label .line:nth-child(1)  {animation-delay: 1.0s;}
-.boundbox-label .line:nth-child(2)  {animation-delay: 1.5s;}
-.boundbox-label .line:nth-child(3)  {animation-delay: 2.0s;}
-.boundbox-label .line:nth-child(4)  {animation-delay: 2.5s;}
-.boundbox-label .line:nth-child(5)  {animation-delay: 3.0s;}
-.boundbox-label .line:nth-child(6)  {animation-delay: 3.5s;}
-.boundbox-label .line:nth-child(7)  {animation-delay: 4.0s;}
-.boundbox-label .line:nth-child(8)  {animation-delay: 4.5s;}
-.boundbox-label .line:nth-child(9)  {animation-delay: 5.0s;}
-.boundbox-label .line:nth-child(10) {animation-delay: 5.5s;}
+.boundbox-color .boundbox-color-description {
+    top:auto;
+    bottom: 0;
+}
+.boundbox-color .line .write-color{
+    width:50%;
+    float: left;
+    height: 1em;
+}
+.boundbox-color .line .show-color{
+    display: block;
+    height: 1em;
+    float: left;
+}
+.boundbox-description .line:nth-child(1)  {animation-delay: 2.0s;}
+.boundbox-description .line:nth-child(2)  {animation-delay: 2.5s;}
+.boundbox-description .line:nth-child(3)  {animation-delay: 3.0s;}
+.boundbox-description .line:nth-child(4)  {animation-delay: 3.5s;}
+.boundbox-description .line:nth-child(5)  {animation-delay: 4.0s;}
+.boundbox-description .line:nth-child(6)  {animation-delay: 4.5s;}
+.boundbox-description .line:nth-child(7)  {animation-delay: 5.0s;}
+.boundbox-description .line:nth-child(8)  {animation-delay: 5.5s;}
+.boundbox-description .line:nth-child(9)  {animation-delay: 6.0s;}
+.boundbox-description .line:nth-child(10) {animation-delay: 6.5s;}
+.boundbox-description .line:nth-child(11) {animation-delay: 7.0s;}
+.boundbox-description .line:nth-child(12) {animation-delay: 7.5s;}
 
 /* boundboxes  */
 

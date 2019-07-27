@@ -1,25 +1,38 @@
 body{
     background: #ffffff;
-    color: #000000;
     margin: 0;
-    font-family: 'Ubuntu Mono', monospace;
     width: 100%;
     height: 100%;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #000000;
+}
+h1{
+    font-weight: 300;
+    font-size: 2.5em;
+}
+h2{
+    font-weight: 300;
+    font-size: 1.5em;
+}
+p{
+    font-size: 1.125em;
+    font-weight: 300;
 }
 .content{
     width: 100%;
     height: 100%;
 }
-.masterpiece-container{
-    height: 100%;
-    margin: 5vh auto 5vh auto;
-}
-.boundbox-container{
-    position: relative;
+a{
+    text-decoration: none;
+    color: #000000;
 }
 
 /* masterpiece (image and title)  */
 
+.masterpiece-container{
+    height: 100%;
+    margin: 5vh auto 5vh auto;
+}
 .masterpiece{
     max-height: 75vh;
     opacity:0;
@@ -29,20 +42,14 @@ body{
 }
 .masterpiece-title{
     text-align: center;
-    font-family: 'Source Sans Pro', sans-serif;
     opacity:0;
     animation-fill-mode: forwards;
     animation-name: show-masterpiece;
     animation-duration: 4s;
     animation-delay: 1s;
 }
-.masterpiece-title h1{
-    font-weight: 300;
-    font-size: 1.5em;
-}
 .masterpiece-title p{
     font-size: 0.895em;
-    font-weight: 300;
 }
 @keyframes show-masterpiece {
     0%   {opacity:0;}
@@ -50,11 +57,17 @@ body{
     100% {opacity:1;}
 }
 
+/* masterpiece end  */
+
 /* boundboxes  */
 
+.boundbox-container{
+    position: relative;
+}
 .boundbox{
     position: absolute;
     border: 4px solid #00FF00;
+    font-family: 'Ubuntu Mono', monospace;
     opacity: 0;
     animation-fill-mode: forwards;
     animation-duration: 1s;
@@ -131,7 +144,54 @@ body{
 .boundbox-description .line:nth-child(11) {animation-delay: 9.0s;}
 .boundbox-description .line:nth-child(12) {animation-delay: 10.5s;}
 
-/* boundboxes  */
+/* boundboxes end */
+
+/* project info */
+
+
+#top-bar-trigger{
+    position: absolute;
+    right: 1vh;
+    top:1vh;
+    z-index: 30;
+    opacity: 0.25;
+    background-image: url("../images/icon-info.svg");
+    background-position: top right;
+    background-size: 2em;
+    background-repeat: no-repeat;
+    min-width: 2em;
+    height: 2em;
+    padding-right: 2.5em;
+    line-height: 2em;
+    transition: opacity 0.25s ease;
+}
+#top-bar-trigger:hover{
+    opacity: 0.66;
+}
+#top-bar-trigger.opened{
+    background-image: url("../images/icon-close.svg");
+}
+#top-bar-trigger.opened span{
+   display: none;
+}
+.project-info-container.open-info{
+    display: block;
+}
+.project-info-container{
+    display: none;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255,255,255,0.9);
+    left: 0;
+    top: 0;
+    z-index: 20;
+}
+.project-info {
+    max-width: 40em;
+    margin: 5vh 5vh 5vh 5vh;
+}
+
 
 
 

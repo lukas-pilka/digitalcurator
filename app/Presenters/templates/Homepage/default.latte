@@ -2,8 +2,6 @@
 
 {block content}
 
-
-
 <script type="text/javascript">
     function artpieceWidth() {
         var width = document.getElementById('masterpiece').offsetWidth;
@@ -62,62 +60,68 @@
 			<div class="boundbox-container">
 				<img src="{$basePath}/sbirka-obrazy/{$item->ngInventoryId}.jpg" class="masterpiece" id="masterpiece">
 
-				{if isset($item->localizedObjectAnnotations)}
-
-					{if count($item->localizedObjectAnnotations)}
-
-						<div class="boundbox boundbox-label">
-							<div class="boundbox-description boundbox-label-description">
-                                {foreach $item->labelAnnotations as $row}
-									<div class="line">
-                                        {$row->description}: {round($row->score*100,0)}%<br>
-									</div>
-                                {/foreach}
-							</div>
-						</div>
-
-						<div class="boundbox boundbox-color">
-							<div class="boundbox-description boundbox-color-description">
-								RGB/Fraction<br>
-                                {foreach $item->propertiesAnnotations as $row}
-									<div class="line">
-										<span class="write-color" style="background-color:rgba({round($row->r)},{round($row->g)},{round($row->b)},1);">{round($row->r)}, {round($row->g)}, {round($row->b)} / {round($row->fraction*100,0)}%</span>
-									</div>
-                                {/foreach}
-							</div>
-						</div>
-
-						{foreach $item->localizedObjectAnnotations as $row}
-							{*{dump $item->localizedObjectAnnotations["boundingPoly"]["normalizedVertices"]}*}
-							{dump $row->boundingPoly->normalizedVertices}
-							{var $width = $row->boundingPoly->normalizedVertices[1]->x - $row->boundingPoly->normalizedVertices[0]->x}
-							{var $height = $row->boundingPoly->normalizedVertices[2]->y - $row->boundingPoly->normalizedVertices[1]->y}
-							{var $offsetx = $row->boundingPoly->normalizedVertices[0]->x}
-							{var $offsety = $row->boundingPoly->normalizedVertices[0]->y}
-							<div class="boundbox boundbox-object" style="left:{round($offsetx*100,0)}%; top:{round($offsety*100,0)}%; width: {round($width*100,0)}%; height: {round($height*100,0)}%;">
-								<div class="boundbox-description boundbox-object-description">{$row->name}: {round($row->score*100,0)}% </div>
-							</div>
-						{/foreach}
-
-						{foreach $item->localizedFacesAnnotations as $row}
-							{dump $row->boundingPoly->vertices}
-							{var $width = ($row->boundingPoly->vertices[1]->x - $row->boundingPoly->vertices[0]->x)}
-							{var $height = ($row->boundingPoly->vertices[2]->y - $row->boundingPoly->vertices[1]->y)}
-							{var $offsetx = $row->boundingPoly->vertices[0]->x}
-							{var $offsety = $row->boundingPoly->vertices[0]->y}
-							<div class="boundbox boundbox-face" style="left:{round($offsetx*100,0)}%; top:{round($offsety*100,0)}%; width: {round($width*100,0)}%; height: {round($height*100,0)}%;">
-								<div class="boundbox-description boundbox-face-description">
-									Face:<br>
-									Anger: {$row->anger}<br>
-									Joy: {$row->joy}<br>
-									Surprise: {$row->surprise}<br>
+				{* Draws labels *}
+				{if count($item->labelAnnotations)}
+					<div class="boundbox boundbox-label">
+						<div class="boundbox-description boundbox-label-description">
+							{foreach $item->labelAnnotations as $row}
+								<div class="line">
+									{$row->description}: {round($row->score*100,0)}%<br>
 								</div>
-							</div>
-						{/foreach}
-
-					{/if}
+							{/foreach}
+						</div>
+					</div>
 				{/if}
+
+                {* Draws colors *}
+				{if count($item->propertiesAnnotations)}
+					<div class="boundbox boundbox-color">
+						<div class="boundbox-description boundbox-color-description">
+							RGB/Fraction<br>
+							{foreach $item->propertiesAnnotations as $row}
+								<div class="line">
+									<span class="write-color" style="background-color:rgba({round($row->r)},{round($row->g)},{round($row->b)},1);">{round($row->r)}, {round($row->g)}, {round($row->b)} / {round($row->fraction*100,0)}%</span>
+								</div>
+							{/foreach}
+						</div>
+					</div>
+				{/if}
+
+                {* Draws objects *}
+				{if count($item->localizedObjectAnnotations)}
+					{foreach $item->localizedObjectAnnotations as $row}
+						{dump $row->boundingPoly->normalizedVertices}
+						{var $width = $row->boundingPoly->normalizedVertices[1]->x - $row->boundingPoly->normalizedVertices[0]->x}
+						{var $height = $row->boundingPoly->normalizedVertices[2]->y - $row->boundingPoly->normalizedVertices[1]->y}
+						{var $offsetx = $row->boundingPoly->normalizedVertices[0]->x}
+						{var $offsety = $row->boundingPoly->normalizedVertices[0]->y}
+						<div class="boundbox boundbox-object" style="left:{round($offsetx*100,0)}%; top:{round($offsety*100,0)}%; width: {round($width*100,0)}%; height: {round($height*100,0)}%;">
+							<div class="boundbox-description boundbox-object-description">{$row->name}: {round($row->score*100,0)}% </div>
+						</div>
+					{/foreach}
+				{/if}
+
+                {* Draws Faces *}
+				{if count($item->localizedFacesAnnotations)}
+					{foreach $item->localizedFacesAnnotations as $row}
+						{dump $row->boundingPoly->vertices}
+						{var $width = ($row->boundingPoly->vertices[1]->x - $row->boundingPoly->vertices[0]->x)}
+						{var $height = ($row->boundingPoly->vertices[2]->y - $row->boundingPoly->vertices[1]->y)}
+						{var $offsetx = $row->boundingPoly->vertices[0]->x}
+						{var $offsety = $row->boundingPoly->vertices[0]->y}
+						<div class="boundbox boundbox-face" style="left:{round($offsetx*100,0)}%; top:{round($offsety*100,0)}%; width: {round($width*100,0)}%; height: {round($height*100,0)}%;">
+							<div class="boundbox-description boundbox-face-description">
+								Face:<br>
+								Anger: {$row->anger}<br>
+								Joy: {$row->joy}<br>
+								Surprise: {$row->surprise}<br>
+							</div>
+						</div>
+					{/foreach}
+				{/if}
+
 			</div>
+
 			<div class="masterpiece-title">
 				<h2>{$item->ngItemName}</h2>
 				<p>{$item->ngAuthor}, {$item->ngCreationDate}<br>Collection of National Gallery in Prague</p>

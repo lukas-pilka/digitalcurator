@@ -34,7 +34,7 @@ a{
     margin: 5vh auto 5vh auto;
 }
 .masterpiece{
-    max-height: 75vh;
+    max-height: 74vh;
     opacity:0;
     animation-fill-mode: forwards;
     animation-name: show-masterpiece;

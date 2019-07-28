@@ -30,7 +30,7 @@
 			<h1>Digital Curator</h1>
 			<p>In 2015, Lev Manovich described Digital Art History as a set of methodologies using quantitative analysis to explore cultural artifacts. DAH represents a new approach to looking at history through mathematical and statistical ways with using cultural databases, digitized museum and archive collections, metadata, texts on art, and virtual reproductions of artworks. One of the methodologies in Digital Art History is visual analyzes based on current technologies of artificial intelligence and machine image recognition. Similar tools such as those used to navigate self-driving cars, identify people in photos, or classify medical images can also be used to look at historical paintings, graphics or drawings.</p>
 			<p>Art historian is a person who can only remember hundreds of works of art in his or her memory, which he or she is able to recall and work with them. But are these the most important works? Are there other works that are much more relevant to the topic and whose finding can completely change meaning and message? Thanks to neural networks, it is possible to explore image databases of hundreds of thousands or millions of items, navigate them in large cultural data, and look at the history from a new perspective. How will our notion of a certain era change if it is based not only on a few canonical works but on all digitized works?</p>
-			<p>The Digital Curator experiment attempts to demonstrate some of the basic capabilities of machine image recognition. With the help of Google Cloud Vision, it searched all digitized works from the National Gallery in Prague. It recognized persons, faces and diverse objects, marked their positions in the painting, gave a precise measure of the certainty of own estimation, examined the color scheme, and determined the proportions of each tone. It analyzed and categorized 1 389 art pieces in 10 minutes and 23 seconds.</p>
+			<p>The Digital Curator experiment attempts to demonstrate some of the basic capabilities of machine image recognition. With the help of Google Cloud Vision, it searched all digitized works of National Gallery in Prague. It recognized persons, faces and diverse objects, marked their positions in the painting, gave a precise measure of the certainty of own estimation, examined the color scheme, and determined the proportions of each tone. It analyzed and categorized 1 389 art pieces in 10 minutes and 23 seconds.</p>
 			<p>
 				Lukáš Pilka and Radim Hašek, 2019<br>
 				pilka@blueghost.cz
@@ -58,7 +58,8 @@
 
 		<div class="masterpiece-container" id="masterpiece-container">
 			<div class="boundbox-container">
-				<img src="{$basePath}/sbirka-obrazy/{$item->ngInventoryId}.jpg" class="masterpiece" id="masterpiece">
+
+				<img src="{$basePath}/sbirka-obrazy/{$item->ngInventoryId}.jpg" class="masterpiece" id="masterpiece" title="{$item->ngItemName}, {$item->ngAuthor}, {$item->ngCreationDate}" alt="{$item->ngItemName}, {$item->ngAuthor}, {$item->ngCreationDate}">
 
 				{* Draws labels *}
 				{if count($item->labelAnnotations)}

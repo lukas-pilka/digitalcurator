@@ -18,7 +18,19 @@
 	<meta name="description" content="The Digital Curator experiment attempts to demonstrate some of the basic capabilities of machine image recognition. With the help of Google Cloud Vision, it searched all digitized works of National Gallery in Prague. It recognized persons, faces and diverse objects, marked their positions in the painting, gave a precise measure of the certainty of own estimation, examined the color scheme, and determined the proportions of each tone." />
 	<meta property="og:image" content="{$basePath}/images/og-image-cranach.jpg">
 
-	<link rel="stylesheet" type="text/css" href="{$basePath}/styles/base.css">
+	<!-- NAPOJENI CSS PRO FRONTEND, MOBILE FIRST -->
+
+	<link rel="stylesheet" type="text/css" media="screen" href="{$basePath}/styles/core-base.css?v=1">
+	<link rel="stylesheet" type="text/css" media="screen and (min-width: 480px)" href="{$basePath}/styles/core-from-480.css?v=1">
+	<link rel="stylesheet" type="text/css" media="screen and (min-width: 600px)" href="{$basePath}/styles/core-from-600.css?v=1">
+	<link rel="stylesheet" type="text/css" media="screen and (min-width: 840px)" href="{$basePath}/styles/core-from-840.css?v=1">
+	<link rel="stylesheet" type="text/css" media="screen and (min-width: 960px)" href="{$basePath}/styles/core-from-960.css?v=1">
+	<link rel="stylesheet" type="text/css" media="screen and (min-width: 1280px)" href="{$basePath}/styles/core-from-1280.css?v=1">
+	<link rel="stylesheet" type="text/css" media="screen and (min-width: 1440px)" href="{$basePath}/styles/core-from-1440.css?v=1">
+	<link rel="stylesheet" type="text/css" media="screen and (min-width: 1600px)" href="{$basePath}/styles/core-from-1600.css?v=1">
+
+	<!-- NAPOJENI CSS PRO FRONTEND, MOBILE FIRST END -->
+
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,700|Ubuntu+Mono&display=swap" rel="stylesheet">
 	<link rel="apple-touch-icon" sizes="180x180" href="{$basePath}/favicon/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="{$basePath}/favicon/favicon-32x32.png">

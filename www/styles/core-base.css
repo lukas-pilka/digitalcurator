@@ -8,19 +8,21 @@ body{
 }
 h1{
     font-weight: 300;
-    font-size: 2.5em;
+    font-size: 2em;
 }
 h2{
     font-weight: 300;
-    font-size: 1.5em;
+    font-size: 1.25em;
 }
 p{
-    font-size: 1.125em;
+    font-size: 0.895 em;
     font-weight: 300;
 }
 .content{
     width: 100%;
     height: 100%;
+    padding: 5vh;
+    box-sizing: border-box;
 }
 a{
     text-decoration: none;
@@ -31,10 +33,11 @@ a{
 
 .masterpiece-container{
     height: 100%;
-    margin: 5vh auto 5vh auto;
+    margin: 0 auto 0 auto;
 }
 .masterpiece{
     max-height: 74vh;
+    max-width: 100%;
     opacity:0;
     animation-fill-mode: forwards;
     animation-name: show-masterpiece;
@@ -74,7 +77,7 @@ a{
     animation-delay:8s ;
     animation-name: show-boundbox;
     box-sizing: border-box;
-    font-size: 1.25em;
+    font-size: 1em;
 }
 .boundbox-description{
     position: absolute;
@@ -157,19 +160,23 @@ a{
     opacity: 0.25;
     background-image: url("../images/icon-info.svg");
     background-position: top right;
-    background-size: 2em;
+    background-size: 1.5em;
     background-repeat: no-repeat;
-    min-width: 2em;
-    height: 2em;
-    padding-right: 2.5em;
-    line-height: 2em;
+    height: 1.5em;
+    padding-right: 1.5em;
+    line-height: 1.5em;
     transition: opacity 0.25s ease;
+    text-transform: uppercase;
 }
 #top-bar-trigger:hover{
     opacity: 0.66;
 }
 #top-bar-trigger.opened{
     background-image: url("../images/icon-close.svg");
+}
+#top-bar-trigger span{
+    display: none;
+    margin-right: 0.5em;
 }
 #top-bar-trigger.opened span{
    display: none;
@@ -188,7 +195,7 @@ a{
     z-index: 20;
 }
 .project-info {
-    max-width: 40em;
+    max-width: 45em;
     margin: 5vh 5vh 5vh 5vh;
 }
 
